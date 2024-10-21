@@ -1,0 +1,9 @@
+{% extends 'customer/customerbase.html' %}
+{% block content %}
+<form method = "POST"> {% csrf_token  %}
+<div class = "form-group">
+{{form}}<br><br>
+</div>
+<input type="submit" class="btn btn-danger" value="submit">
+</form>
+{% endblock %}

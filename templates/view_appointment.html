@@ -1,0 +1,45 @@
+{% extends 'admin/adminbase.html' %}
+{% block content %}
+<div class = "card-body">
+    <table class = 'table table-dark'>
+        <thead>
+        <tr>
+            <th>SLNO</th>
+            <th>user</th>
+        <th>schedule</th>
+            <th>status</th>
+
+        </tr>
+        <tbody>
+    {% for i in data %}
+    <tr>
+         <th scope ="row">{{forloop.counter}}</th>
+        <td>{{i.appointment}} </td>
+    <td>{{i.schedule}}</td>
+<!--    <td>{{i.status}}</td>-->
+        <td>{% if i.status == 0 %}<h1>pending</h1></td>
+        <td><button type="button" class="btn btn-primary">pending</button></td>
+
+
+
+        <td>{% elif i.status == 1 %}
+<!--            <h1>approved</h1></td>-->
+        <td><button type="button" class="btn btn-primary">approved</button></td>
+
+        <td>{% elif i.status == 2 %}
+<!--            <h1>rejected</h1></td>-->
+        <td><button type="button" class="btn btn-primary">Rejected</button></td>
+
+
+
+
+        {% endif %}
+<!--        <input type="submit" value="accept">-->
+    </tr>
+    {% endfor %}
+    </tbody>
+        </thead>
+    </table>
+</div>
+{% endblock %}
+</html>

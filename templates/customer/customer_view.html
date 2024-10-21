@@ -1,0 +1,54 @@
+{% extends 'customer/customerbase.html' %}
+{% block content %}
+<div class = "card-body">
+    <table class="table table-boarderd table-dark">
+        <thead>
+        <tr>
+            <th scope = "col">slno</th>
+
+<!--            <th scope ="col">user</th>-->
+              <th scope ="col">name</th>
+              <th scope ="col">email</th>
+              <th scope ="col">address</th>
+              <th scope ="col">phone</th>
+            <th scope=" col">Delete</th>
+            <th scope="col">update</th>
+
+
+
+        </tr>
+        <tbody>
+        {% for i in data %}
+        <tr>
+            <th scope ="row">{{forloop.counter}}</th>
+        <td>{{i.name}}</td>
+        <td>{{i.email}}</td>
+        <td>{{i.Address}}</td>
+            <td>{{i.phone}}</td>
+
+
+            <td>
+                <form action ="{% url 'delete' i.id %}" method="POST" style="display":inline;
+                 onsubmit = "window.mytest()">
+                 {% csrf_token %}
+                 <input type ="hidden" value="{{n.user_id}}"/>
+                 <button type ="submit" class="btn btn-danger waves-effect width-md waves-light">Delete</button>
+                </form>
+            </td>
+                    <td>
+                        <a href="{% url 'update' i.id %}" >
+                            <button type="button" class="btn btn-primary">Update</button>
+                        </a>
+                    </td>
+
+        </tr>
+    {% endfor %}
+        </tbody>
+        </thead>
+    </table>
+</div>
+
+
+</body>
+{% endblock %}
+</html>

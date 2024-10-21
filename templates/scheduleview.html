@@ -1,0 +1,35 @@
+{% extends 'customer/customerbase.html' %}
+{% block content %}
+<div class = "card-body">
+    <table class = 'table table-dark'>
+        <thead>
+        <tr>
+            <th>SLNO</th>
+<!--        <th>schedule</th>-->
+            <th>date</th>
+             <th>starting time</th>
+             <th>ending time</th>
+            <th>appoinment</th>
+
+
+        </tr>
+        <tbody>
+    {% for  i in data %}
+    <tr>
+         <th scope ="row">{{forloop.counter}}</th>
+        <td>{{i.date}}</td>
+    <td>{{i.startingtime}}</td>
+    <td>{{i.endingtime}}</td>
+        <td>
+           <a href="{% url 'appointment' i.id %}" >
+               <button type="button" class="btn btn-primary">Appointment</button>
+           </a>
+        </td>
+    </tr>
+       {% endfor %}
+    </tbody>
+        </thead>
+    </table>
+</div>
+{% endblock %}
+</html>

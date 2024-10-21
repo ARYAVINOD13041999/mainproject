@@ -1,0 +1,24 @@
+{% extends 'manager/managerbase.html' %}
+{% block content %}
+<div class = "card-body">
+    <table class = 'table table-dark'>
+        <thead>
+        <tr>
+            <th>SLNO</th>
+        <th>notification</th>
+            <th>date</th>
+
+        </tr>
+        <tbody>
+    {% for  i in m %}
+    <tr>
+         <th scope ="row">{{forloop.counter}}</th>
+        <td>{{i.notification}}</td>
+    <td>{{i.date}}</td></tr>
+       {% endfor %}
+    </tbody>
+        </thead>
+    </table>
+</div>
+{% endblock %}
+</html>

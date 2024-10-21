@@ -1,0 +1,35 @@
+{% extends 'customer/customerbase.html' %}
+{% block content %}
+<div class="col-lg-8">
+    <div class ="card">
+
+        <div class="card-header"><strong>Book Appointment</strong></div>
+        <div class="card-body card-block">
+            <form method = 'POST'>{% csrf_token %}
+    <div class = "form_group">
+        <label class="form-control-label">date</label>
+        <input class="form-control" readonly value="{{a.date}}">
+    </div>
+                <div class="form-group">
+                    <label class="form-control-label">start time</label>
+                    <input required class="form-control" readonly value="{{a.startingtime}}">
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label">end time</label>
+                    <input required class="form-control" readonly value="{{a.endingtime}}">
+                </div>
+
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary btn-sm">submit</button>
+                </div>
+                {% for message in message %}
+                <div class="alert alert-primary" role="alert">
+                    {{message}}
+                </div>
+                {% endfor %}
+            </form>
+        </div>
+    </div>
+</div>
+    {% endblock %}
+</html>

@@ -1,0 +1,38 @@
+{% extends 'customer/customerbase.html' %}
+{% block content %}
+<div class="card-body" xmlns="http://www.w3.org/1999/html">
+    <table class = 'table table-stripped'>
+         <table class = 'table table-dark'>
+        <thead>
+        <tr>
+        <th>starting time</th>
+            <th>ending time</th>
+            <th>date</th>
+            <th>status</th>
+
+        </tr>
+        <tbody>
+    {% for  i in data %}
+    <tr>
+        <td>{{i.schedule.startingtime}}</td>
+        <td>{{i.schedule.endingtime}}</td>
+        <td>{{i.schedule.date}}</td>
+<!--        <td>{{i.status}}</td>-->
+        <td>{% if i.status == 0 %}<h3 style="color: red;">pending</h3></td>
+
+        <td>{% elif i.status == 1 %}<h1>approved</h1></td>
+
+        {% endif %}
+    </tr>
+    {% endfor %}
+         </tbody>
+             </thead>
+         </table>
+</div>
+
+
+
+
+
+{% endblock %}
+</html>

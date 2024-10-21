@@ -1,0 +1,31 @@
+{% extends 'admin/adminbase.html' %}
+{% block content %}
+<div class = "card-body">
+    <table class = 'table table-dark'>
+        <thead>
+        <tr>
+            <th>SLNO</th>
+        <th>notification</th>
+            <th>Delete</th>
+        </tr>
+        <tbody>
+    {% for  i in data %}
+    <tr>
+         <th scope ="row">{{forloop.counter}}</th>
+        <td>{{i.notification}}</td>
+    <td>
+        <form action ="{% url 'delete3' i.id %}" method="POST" style="display":inline;
+                 onsubmit = "window.mytest()">
+                 {% csrf_token %}
+                 <input type ="hidden" value="{{n.user_id}}"/>
+                 <button type ="submit" class="btn btn-danger waves-effect width-md waves-light">Delete</button>
+                </form>
+    </td>
+    </tr>
+    {% endfor %}
+    </tbody>
+        </thead>
+    </table>
+</div>
+{% endblock %}
+</html>

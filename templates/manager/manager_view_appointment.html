@@ -1,0 +1,58 @@
+{% extends 'manager/managerbase.html' %}
+{% block content %}
+
+<div class="card-body" xmlns="http://www.w3.org/1999/html">
+    <table class = 'table table-stripped'>
+         <table class = 'table table-dark'>
+        <thead>
+        <tr>
+        <th>starting time</th>
+            <th>ending time</th>
+            <th>date</th>
+            <th>status</th>
+
+        </tr>
+        <tbody>
+    {% for i in data %}
+    <tr>
+        <td>{{i.schedule.startingtime}}</td>
+        <td>{{i.schedule.endingtime}}</td>
+        <td>{{i.schedule.date}}</td>
+<!--        <td>{{i.status}}</td>-->
+        <td>{% if i.status == 0 %}
+        <a href="{% url 'accept' i.id %}" >
+               <button type="button" class="btn btn-primary">ACCEPT</button>
+           </a>
+          <a href="{% url 'reject' i.id %}" >
+               <button type="button" class="btn btn-primary">REJECT</button>
+           </a>
+
+
+        </td>
+
+        {% elif i.status == 1 %}
+             <td>
+               <button type="button" class="btn btn-primary">ACCEPTED</button>
+            </td>
+        {% elif i.status == 2 %}
+
+        <td>
+           <button type="button" class="btn btn-primary">REJECTED</button>
+        </td>
+
+
+
+        {% endif %}
+    </tr>
+    {% endfor %}
+         </tbody>
+             </thead>
+         </table>
+</div>
+
+
+
+
+
+{% endblock %}
+</html>

@@ -1,0 +1,19 @@
+{% extends 'customer/customerbase.html' %}
+{% block content %}
+<div class = "card-body">
+    <table class = 'table table-stripped'>
+        <thead>
+        <tr>
+        <th>message</th>
+        </tr>
+        <tbody>
+    {% for  i in data %}
+    <tr>
+        <td>{{i.message}}</td></tr>
+    {% endfor %}
+    </tbody>
+        </thead>
+    </table>
+</div>
+{% endblock %}
+</html>
